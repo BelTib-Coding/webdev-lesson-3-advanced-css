@@ -83,7 +83,7 @@ img {
 	background-color: tomato; 
 }
 ```
-![Image with padding and color](screenshots/img-margin-color.png)
+![Image with padding and color](screenshots/img-padding-color.png)
 
 Aha! When you use padding there is space between the left edge of the element and the picture itself. 
 
