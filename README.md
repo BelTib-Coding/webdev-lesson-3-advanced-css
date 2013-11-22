@@ -117,7 +117,7 @@ img {
 ```
 ![Image floating to the right](screenshots/img-float.png)
 
-Whoa! 
+Whoa! Everything moved. Before we fix things, let's try to understand why that happened. 
 
 ## Position
 
