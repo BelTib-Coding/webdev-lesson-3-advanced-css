@@ -102,9 +102,27 @@ img {
 
 You can see, the border color sits between the padding and the margin. If you're ever having trouble positioning your elements, make sure to check all 3: margin, padding, and border. 
 
-## Position
-
-
 ## Float
 
+Sometimes you'll want to move things around on the screen. Maybe you want to have the pictures on the right side of the screen and the descriptions on the left. Using ```float``` is a great way to make that happen.
+
+Let's float our pictures to the right and our text to the left. 
+
+```css
+img {
+  float: right;
+  width: 50%;
+  margin-left: 10px;
+}
+```
+![Image floating to the right](screenshots/img-float.png)
+
+Whoa! 
+
+## Position
+
 ## Transitions
+
+
+## Summary
+[The Pen I used today](http://codepen.io/donjo/pen/vBFwl).
