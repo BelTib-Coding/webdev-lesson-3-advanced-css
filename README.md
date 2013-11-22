@@ -41,9 +41,66 @@ Let's see how this works in practice...
 
 ![No margin, padding, or border](screenshots/blankmargin.png)
 
-If you look at the first image on the page, you'll notice how it  currently has no margin, padding, or border. As a result, it's pushed up against the left side of the page with no spacing 
+If you look at the first image on the page, you'll notice how it  currently has no margin, padding, or border. As a result, it's pushed up against the left side of the page with no spacing.
 
+Let's add some padding to the page to indent the image a little bit.
 
+```css
+img {
+  width: 50%;
+  padding-left: 10px;
+}
+```
+![Image with padding](screenshots/img-padding-left.png)
+
+Now let's see what happens when we change that padding to a margin.
+
+```css
+img {
+  width: 50%;
+  margin-left: 10px;
+}
+```
+![Image with margin](screenshots/img-margin-left.png)
+
+Nothing?! Wait a second... let's do some detective work. Let's change the color of the background for this element to see if there is any invisible spacing.
+
+```css
+img {
+  width: 50%;
+  margin-left: 10px;
+	background-color: tomato; 
+}
+```
+![Image with margin and color](screenshots/img-margin-color.png)
+
+Hmm... that didn't seem to do anything. Let's change from margin back to padding? 
+
+```css
+img {
+  width: 50%;
+  padding-left: 10px;
+	background-color: tomato; 
+}
+```
+![Image with padding and color](screenshots/img-margin-color.png)
+
+Aha! When you use padding there is space between the left edge of the element and the picture itself. 
+
+Let's see what this looks like when we add a margin and a border.
+
+```css
+img {
+  width: 50%;
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 5px solid dimgray; 
+  background-color: tomato;
+}
+```
+![Image with padding margin and color](screenshots/img-padding-margin-border.png)
+
+You can see, the border color sits between the padding and the margin. If you're ever having trouble positioning your elements, make sure to check all 3: margin, padding, and border. 
 
 ## Position
 
