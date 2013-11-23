@@ -297,6 +297,6 @@ Play around! Used wisely, transition effects can help create a delightful webpag
 
 ## Summary
 
-Thanks! Next week we'll start digging in to Javascript and 
+Thanks! Next week we'll start digging into Javascript and some other cool things.
 
 [The Pen I used today](http://codepen.io/donjo/pen/vBFwl).
