@@ -292,6 +292,11 @@ li:hover {
 
 > **Bonus**: What does the !important do? What would happen without it? 
 
+Play around! Used wisely, transition effects can help create a delightful webpage for your readers.
+
 
 ## Summary
+
+Thanks! Next week we'll start digging in to Javascript and 
+
 [The Pen I used today](http://codepen.io/donjo/pen/vBFwl).
