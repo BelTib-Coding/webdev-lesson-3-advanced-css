@@ -178,12 +178,119 @@ To do that, we're going to wrap our pictures and their caption paragraphs in two
 
 > **Bonus #2**: how would you go about cleaning up this messy code? 
 
-
-
+**This can be messy.** There are a lot of weird rules to how floats work and we don't have time to go over all of them but you can [read more here](http://coding.smashingmagazine.com/2009/10/19/the-mystery-of-css-float-property/). 
 
 ## Position
 
+Beyond just floating elements, you can also position them with the ```position``` property.
+
+CSS gives you five different options for using position: ```static``` ```relative``` ```absolute``` ```fixed``` and ```inherit``` 
+
+The default is ```static``` which is what gets set even if you don't bother to set any position. We'll talk about two others today, ```absolute``` and ```relative```.
+
+Let's start by creating a label that we're going to place on top of our image that we've floated to the right.
+
+```html
+ <h1>A day at the dog park</h1>
+    
+    <div id="cool"> COOL! </div>
+    
+    <div id="first-picture"> 
+```
+```css
+#cool {
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Cool story](screenshots/cool-static.png)
+
+This is what it looks like as a static div.
+
+Now let's give it an absolute position and make it display on top of our image.
+
+```css
+#cool {
+  position: absolute;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Cooler story](screenshots/cool-absolute.png)
+
+Hmm... what would happen if we changed that absolute to "relative" 
+
+```css
+#cool {
+  position: relative;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+![Coolest story](screenshots/cool-relative.png)
+
+It moved! But why? Let's see what happens if we move the div to a different place in the HTML file...
+
+We'll move it to just before the div that contains the second picture.
+
+```html
+    </div>
+    
+    <div id="cool"> COOL! </div>
+    
+    <div id="second-picture">
+```
+
+![Coolest story](screenshots/cool-relative2.png)
+
+It moved down to just below the second picture.
+
+Hmm... now what would happen if we changed the position back to absolute? 
+
+```css
+#cool {
+  position: absolute;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Whoa!](screenshots/cool-absolute.png)
+
+It went back up to the first picture! You see, when you set your position as absolute, CSS doesn't care where your HTML tag is because it's going to put the block **absolutely** where you tell it to go. When you use **relative** it puts it **relative** to the block listed right before it. 
+
+In this case, our ```left``` and ```top``` position measurements were being taken **relative** to the ```h1``` in our body and then, after moving it, relative to our first-picture div.
+
 ## Transitions
+
+At the end of last week we learned how to do a transition when you hover over a ```li```. Let's try making that cooler by experimenting with some modifications...
+
+```css
+li:hover {
+    background-color: burlywood;
+    transition: background-color 5s;
+}
+```
+
+You can do more than one transition at once too!
+
+```css
+li:hover {
+    background-color: burlywood;
+    color: whitesmoke !important;
+    transition: background-color 2s, color 2s;
+}
+```
+
+> **Bonus**: What does the !important do? What would happen without it? 
 
 
 ## Summary
