@@ -117,12 +117,186 @@ img {
 ```
 ![Image floating to the right](screenshots/img-float.png)
 
-Whoa! 
+Whoa! Everything moved. Before we fix things, let's try to understand why that happened. 
+
+When floating an image, it is going to float all the way to the edge of its parent container. Because I applied float directly to ALL image tags on our page, the float looked to see what the parent container was and saw that it was ```<body>``` so it moved the images to the right edge of the body of the page. 
+
+When floating an image, the other elements will begin to line up around it within the natural flow of the page. 
+
+![Float Right](screenshots/float-right.png)
+
+However, since **everything** got pushed up the page, our descriptions of the pictures no longer match up with the pictures themselves.
+
+**We can fix this!**
+
+Let's decide how we want this to look. Probably something like this...
+
+![Floats](screenshots/floats.png)
+
+*image thanks to [Shay Howe](http://learn.shayhowe.com/)*
+
+We are going to have our top section stretch across the screen while the middle section is split into two columns. The bottom will be all one section.
+
+To do that, we're going to wrap our pictures and their caption paragraphs in two different ```divs``` 
+
+```html
+<div id="first-picture"> 
+	<p>Today I took the dogs to the park and <strong>we had a great time!</strong></p>
+	<img src="http://f.cl.ly/items/2f473l1d233S0S1k3J3d/dogs-playing.jpg">
+</div>
+    
+<div id="second-picture">
+	<p>After the dogs played with their friends <em>we took a walk around the track together.</em></p>
+	<img src="http://f.cl.ly/items/0o0T0V0g261C1R0I022z/walking-the-track.jpg">
+</div>
+  
+<div id="summary"> 
+	<!-- your bottom section goes here -->
+```
+
+```css 
+#first-picture {
+  height: 400px;
+}
+#first-picture p {
+  float: left;
+}
+#second-picture {
+  height: 400px
+}
+#second-picture p {
+  float: left;
+}
+#summary {
+  clear: both
+}
+```
+
+![Pictures with their captions to the left](screenshots/floats-paragraphs.png)
+
+> **Bonus #1**: What happens if you don't set a height? 
+
+> **Bonus #2**: how would you go about cleaning up this messy code? 
+
+**This can be messy.** There are a lot of weird rules to how floats work and we don't have time to go over all of them but you can [read more here](http://coding.smashingmagazine.com/2009/10/19/the-mystery-of-css-float-property/). 
 
 ## Position
 
+Beyond just floating elements, you can also position them with the ```position``` property.
+
+CSS gives you five different options for using position: ```static``` ```relative``` ```absolute``` ```fixed``` and ```inherit``` 
+
+The default is ```static``` which is what gets set even if you don't bother to set any position. We'll talk about two others today, ```absolute``` and ```relative```.
+
+Let's start by creating a label that we're going to place on top of our image that we've floated to the right.
+
+```html
+ <h1>A day at the dog park</h1>
+    
+    <div id="cool"> COOL! </div>
+    
+    <div id="first-picture"> 
+```
+```css
+#cool {
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Cool story](screenshots/cool-static.png)
+
+This is what it looks like as a static div.
+
+Now let's give it an absolute position and make it display on top of our image.
+
+```css
+#cool {
+  position: absolute;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Cooler story](screenshots/cool-absolute.png)
+
+Hmm... what would happen if we changed that absolute to "relative" 
+
+```css
+#cool {
+  position: relative;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+![Coolest story](screenshots/cool-relative.png)
+
+It moved! But why? Let's see what happens if we move the div to a different place in the HTML file...
+
+We'll move it to just before the div that contains the second picture.
+
+```html
+    </div>
+    
+    <div id="cool"> COOL! </div>
+    
+    <div id="second-picture">
+```
+
+![Coolest story](screenshots/cool-relative2.png)
+
+It moved down to just below the second picture.
+
+Hmm... now what would happen if we changed the position back to absolute? 
+
+```css
+#cool {
+  position: absolute;
+  left: 520px;
+  top: 300px;
+  color: white;
+  font-size: 3em; 
+}
+```
+
+![Whoa!](screenshots/cool-absolute.png)
+
+It went back up to the first picture! You see, when you set your position as absolute, CSS doesn't care where your HTML tag is because it's going to put the block **absolutely** where you tell it to go. When you use **relative** it puts it **relative** to the block listed right before it. 
+
+In this case, our ```left``` and ```top``` position measurements were being taken **relative** to the ```h1``` in our body and then, after moving it, relative to our first-picture div.
+
 ## Transitions
+
+At the end of last week we learned how to do a transition when you hover over a ```li```. Let's try making that cooler by experimenting with some modifications...
+
+```css
+li:hover {
+    background-color: burlywood;
+    transition: background-color 5s;
+}
+```
+
+You can do more than one transition at once too!
+
+```css
+li:hover {
+    background-color: burlywood;
+    color: whitesmoke !important;
+    transition: background-color 2s, color 2s;
+}
+```
+
+> **Bonus**: What does the !important do? What would happen without it? 
+
+Play around! Used wisely, transition effects can help create a delightful webpage for your readers.
 
 
 ## Summary
+
+Thanks! Next week we'll start digging into Javascript and some other cool things.
+
 [The Pen I used today](http://codepen.io/donjo/pen/vBFwl).
