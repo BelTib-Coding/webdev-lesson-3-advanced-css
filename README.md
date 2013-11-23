@@ -132,6 +132,7 @@ However, since **everything** got pushed up the page, our descriptions of the pi
 Let's decide how we want this to look. Probably something like this...
 
 ![Floats](screenshots/floats.png)
+
 *image thanks to [Shay Howe](http://learn.shayhowe.com/)*
 
 We are going to have our top section stretch across the screen while the middle section is split into two columns. The bottom will be all one section.
@@ -141,12 +142,12 @@ To do that, we're going to wrap our pictures and their caption paragraphs in two
 ```html
 <div id="first-picture"> 
 	<p>Today I took the dogs to the park and <strong>we had a great time!</strong></p>
-  <img src="http://f.cl.ly/items/2f473l1d233S0S1k3J3d/dogs-playing.jpg">
+	<img src="http://f.cl.ly/items/2f473l1d233S0S1k3J3d/dogs-playing.jpg">
 </div>
     
 <div id="second-picture">
 	<p>After the dogs played with their friends <em>we took a walk around the track together.</em></p>
-  <img src="http://f.cl.ly/items/0o0T0V0g261C1R0I022z/walking-the-track.jpg">
+	<img src="http://f.cl.ly/items/0o0T0V0g261C1R0I022z/walking-the-track.jpg">
 </div>
   
 <div id="summary"> 
@@ -174,6 +175,7 @@ To do that, we're going to wrap our pictures and their caption paragraphs in two
 ![Pictures with their captions to the left](screenshots/floats-paragraphs.png)
 
 > **Bonus #1**: What happens if you don't set a height? 
+
 > **Bonus #2**: how would you go about cleaning up this messy code? 
 
 
